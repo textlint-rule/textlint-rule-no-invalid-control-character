@@ -1,0 +1,56 @@
+{
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "author": "azu",
+  "license": "MIT",
+  "files": [
+    "bin/",
+    "lib/",
+    "src/"
+  ],
+  "name": "textlint-rule-no-invalid-control-character",
+  "version": "1.0.0",
+  "description": "textlint rule check unnessary control character in the document.",
+  "main": "lib/textlint-rule-no-invalid-control-character.js",
+  "scripts": {
+    "test": "textlint-scripts test",
+    "prettier": "prettier --write \"**/*.{js,jsx,ts,tsx,css}\"",
+    "precommit": "lint-staged",
+    "postcommit": "git reset",
+    "prepublish": "npm run --if-present build",
+    "build": "textlint-scripts build",
+    "watch": "textlint-scripts build --watch"
+  },
+  "keywords": [
+    "textlintrule"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/textlint-rule/textlint-rule-no-invalid-control-character.git"
+  },
+  "bugs": {
+    "url": "https://github.com/textlint-rule/textlint-rule-no-invalid-control-character/issues"
+  },
+  "homepage": "https://github.com/textlint-rule/textlint-rule-no-invalid-control-character",
+  "devDependencies": {
+    "husky": "^0.14.3",
+    "lint-staged": "^6.0.0",
+    "prettier": "^1.9.2",
+    "textlint-scripts": "^1.4.1"
+  },
+  "prettier": {
+    "printWidth": 120,
+    "tabWidth": 4
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,css}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "dependencies": {
+    "execall": "^1.0.0"
+  }
+}
