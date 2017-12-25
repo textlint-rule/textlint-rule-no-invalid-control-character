@@ -1,4 +1,4 @@
-# textlint-rule-no-invalid-control-character
+# @textlint-rule/textlint-rule-no-invalid-control-character [![Build Status](https://travis-ci.org/textlint-rule/textlint-rule-no-invalid-control-character.svg?branch=master)](https://travis-ci.org/textlint-rule/textlint-rule-no-invalid-control-character)
 
 textlint rule check invalid control character in the document.
 
@@ -21,7 +21,7 @@ For example, following control character is not allowed.
 
 Install with [npm](https://www.npmjs.com/):
 
-    npm install textlint-rule-no-invalid-control-character
+    npm install @textlint-rule/textlint-rule-no-invalid-control-character
 
 ## Usage
 
@@ -30,7 +30,7 @@ Via `.textlintrc`(Recommended)
 ```json
 {
     "rules": {
-        "no-invalid-control-character": true
+        "@textlint-rule/no-invalid-control-character": true
     }
 }
 ```
@@ -38,7 +38,7 @@ Via `.textlintrc`(Recommended)
 Via CLI
 
 ```
-textlint --rule no-invalid-control-character README.md
+textlint --rule @textlint-rule/no-invalid-control-character README.md
 ```
 
 ## Options
@@ -49,7 +49,7 @@ textlint --rule no-invalid-control-character README.md
 ```json
 {
     "rules": {
-        "no-invalid-control-character": {
+        "@textlint-rule/no-invalid-control-character": {
             "allow": [
                 "\v"
             ]
