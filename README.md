@@ -16,6 +16,7 @@ For example, following control character is not allowed.
 
 - `\t`
 - `\u0019`
+- etc...
 
 ## Install
 
