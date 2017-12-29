@@ -62,6 +62,7 @@ textlint --rule @textlint-rule/no-invalid-control-character README.md
 ## Reference
 
 - [JavaScript character escape sequences · Mathias Bynens](https://mathiasbynens.be/notes/javascript-escapes "JavaScript character escape sequences · Mathias Bynens")
+- [azu/check-invalid-control-characters: Check invalid control characters like `\u0008` in plain text.](https://github.com/azu/check-invalid-control-characters "azu/check-invalid-control-characters: Check invalid control characters like `\u0008` in plain text.")
 
 ## Changelog
 
