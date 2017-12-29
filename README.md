@@ -8,7 +8,7 @@ textlint rule check invalid control character in the document.
 - `\n`
 - `\t`
 
-## Now Allow
+## Not Allow
 
 Other [control character](https://en.wikipedia.org/wiki/Control_character "Control character").
 
