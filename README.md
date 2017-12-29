@@ -14,8 +14,8 @@ Other [control character](https://en.wikipedia.org/wiki/Control_character "Contr
 
 For example, following control character is not allowed.
 
-- `\t`
-- `\u0019`
+- ``(`\u0010` DATA LINK ESCAPE)
+- ``(`\u0019` ND OF MEDIUM)
 - etc...
 
 ## Install
