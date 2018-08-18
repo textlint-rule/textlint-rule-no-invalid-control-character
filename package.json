@@ -11,7 +11,7 @@
     "src/"
   ],
   "name": "@textlint-rule/textlint-rule-no-invalid-control-character",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "textlint rule check unnessary control character in the document.",
   "main": "lib/textlint-rule-no-invalid-control-character.js",
   "scripts": {
