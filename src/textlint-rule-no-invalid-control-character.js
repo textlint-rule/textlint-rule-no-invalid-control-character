@@ -25,41 +25,46 @@ const getName = char => {
 
 const DEFAULT_OPTION = {
     // Define allow char code like `\u0019`
-    allow: []
+    allow: [],
+    // Check code if it is true
+    checkCode: false
 };
-/**
- * @param {TextlintRuleContext} context
- * @param {{
- *  allow?:string[]
- * }} options
- * @returns {TextlintRuleCreator}
- */
+
 const reporter = (context, options = {}) => {
     const { Syntax, RuleError, getSource, fixer, report } = context;
     const allow = options.allow || DEFAULT_OPTION.allow;
+    const checkCode = options.checkCode !== undefined ? options.checkCode : DEFAULT_OPTION.checkCode;
+    const checkNode = node => {
+        const text = getSource(node);
+        // Ignore \r \n \t
+        const controlCharacterPattern = /([\x00-\x08\x0B\x0C\x0E-\x1F\x7F])/g;
+        /**
+         * @type {Array<{match:string, sub:string[], index:number}>}
+         */
+        const results = execall(controlCharacterPattern, text);
+        results.forEach(result => {
+            const index = result.index;
+            const char = result.sub[0];
+            // if allow the `char`, ignore it
+            if (allow.some(allowChar => allowChar === char)) {
+                return;
+            }
+            const name = getName(char);
+            const ruleError = new RuleError(`Found invalid control character(${name} ${unicodeEscape(char)})`, {
+                index: index,
+                fix: fixer.removeRange([index, index + 1])
+            });
+            report(node, ruleError);
+        });
+    };
     return {
         [Syntax.Str](node) {
-            const text = getSource(node);
-            // Ignore \r \n \t
-            const controlCharacterPattern = /([\x00-\x08\x0B\x0C\x0E-\x1F\x7F])/g;
-            /**
-             * @type {Array<{match:string, sub:string[], index:number}>}
-             */
-            const results = execall(controlCharacterPattern, text);
-            results.forEach(result => {
-                const index = result.index;
-                const char = result.sub[0];
-                // if allow the `char`, ignore it
-                if (allow.some(allowChar => allowChar === char)) {
-                    return;
-                }
-                const name = getName(char);
-                const ruleError = new RuleError(`Found invalid control character(${name} ${unicodeEscape(char)})`, {
-                    index: index,
-                    fix: fixer.removeRange([index, index + 1])
-                });
-                report(node, ruleError);
-            });
+            checkNode(node);
+        },
+        [Syntax.Code](node) {
+            if (checkCode) {
+                checkNode(node);
+            }
         }
     };
 };

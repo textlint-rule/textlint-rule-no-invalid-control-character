@@ -46,6 +46,9 @@ textlint --rule @textlint-rule/no-invalid-control-character README.md
 
 - `allow`: `string[]`
     - Define allow control characters
+- `checkCode`: `boolean`
+    - Default: `false`
+    - Check code if it is `true`
 
 ```json
 {
