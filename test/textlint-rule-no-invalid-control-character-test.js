@@ -33,6 +33,12 @@ tester.run("textlint-rule-no-invalid-control-character", rule, {
             options: {
                 allow: ["\u0019"]
             }
+        },
+        {
+            text: `\`var value = "\u0008"\``,
+            options: {
+                checkCode: false
+            }
         }
     ],
     invalid: [
