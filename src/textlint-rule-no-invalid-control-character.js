@@ -61,6 +61,11 @@ const reporter = (context, options = {}) => {
         [Syntax.Str](node) {
             checkNode(node);
         },
+        [Syntax.CodeBlock](node) {
+            if (checkCode) {
+                checkNode(node);
+            }
+        },
         [Syntax.Code](node) {
             if (checkCode) {
                 checkNode(node);

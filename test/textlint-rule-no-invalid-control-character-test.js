@@ -64,6 +64,21 @@ tester.run("textlint-rule-no-invalid-control-character", rule, {
                 }
             ]
         },
+        {
+            text: `
+\`\`\`
+var value = "\u0008"
+\`\`\``,
+            options: {
+                checkCode: true
+            },
+            errors: [
+                {
+                    message: "Found invalid control character(BACKSPACE \\u0008)",
+                    index: 18
+                }
+            ]
+        },
         ...invalid
     ]
 });
