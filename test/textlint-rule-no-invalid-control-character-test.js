@@ -39,6 +39,29 @@ tester.run("textlint-rule-no-invalid-control-character", rule, {
             options: {
                 checkCode: false
             }
+        },
+        {
+            text: `![textlint logo\u0008](https://textlint.github.io/img/textlint-icon_256x256.png "logo\u0019")`,
+            options: {
+                checkImage: false
+            }
+        },
+        {
+            text: `![textlint logo\u0008](https://textlint.github.io/img/textlint-icon_256x256.png "logo\u0019")`,
+            options: {
+                checkImage: true,
+                allow: ["\u0008", "\u0019"]
+            },
+            errors: [
+                {
+                    message: "Found invalid control character(BACKSPACE \\u0008)",
+                    index: 15
+                },
+                {
+                    message: "Found invalid control character(END OF MEDIUM \\u0019)",
+                    index: 80
+                }
+            ]
         }
     ],
     invalid: [
@@ -76,6 +99,35 @@ var value = "\u0008"
                 {
                     message: "Found invalid control character(BACKSPACE \\u0008)",
                     index: 18
+                }
+            ]
+        },
+        {
+            text: `![textlint logo\u0008](https://textlint.github.io/img/textlint-icon_256x256.png "logo\u0019")`,
+            options: {
+                checkImage: true
+            },
+            errors: [
+                {
+                    message: "Found invalid control character(BACKSPACE \\u0008)",
+                    index: 15
+                },
+                {
+                    message: "Found invalid control character(END OF MEDIUM \\u0019)",
+                    index: 80
+                }
+            ]
+        },
+        {
+            text: `![textlint logo\u0008](https://textlint.github.io/img/textlint-icon_256x256.png "logo\u0019")`,
+            options: {
+                checkImage: true,
+                allow: ["\u0019"]
+            },
+            errors: [
+                {
+                    message: "Found invalid control character(BACKSPACE \\u0008)",
+                    index: 15
                 }
             ]
         },

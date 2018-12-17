@@ -49,6 +49,9 @@ textlint --rule @textlint-rule/no-invalid-control-character README.md
 - `checkCode`: `boolean`
     - Default: `false`
     - Check code if it is `true`
+- `checkImage`: `boolean`
+    - Default: `false`
+    - Check image title and alt texts if it is `true`
 
 ```json
 {
