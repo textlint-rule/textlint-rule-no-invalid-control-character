@@ -27,13 +27,16 @@ const DEFAULT_OPTION = {
     // Define allow char code like `\u0019`
     allow: [],
     // Check code if it is true
-    checkCode: false
+    checkCode: false,
+    // Check image title and alt text if it is true
+    checkImage: false
 };
 
 const reporter = (context, options = {}) => {
     const { Syntax, RuleError, getSource, fixer, report } = context;
     const allow = options.allow || DEFAULT_OPTION.allow;
     const checkCode = options.checkCode !== undefined ? options.checkCode : DEFAULT_OPTION.checkCode;
+    const checkImage = options.checkImage !== undefined ? options.checkImage : DEFAULT_OPTION.checkImage;
     const checkNode = node => {
         const text = getSource(node);
         // Ignore \r \n \t
@@ -68,6 +71,11 @@ const reporter = (context, options = {}) => {
         },
         [Syntax.Code](node) {
             if (checkCode) {
+                checkNode(node);
+            }
+        },
+        [Syntax.Image](node) {
+            if (checkImage) {
                 checkNode(node);
             }
         }
