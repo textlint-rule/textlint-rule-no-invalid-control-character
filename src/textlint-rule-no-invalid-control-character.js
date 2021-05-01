@@ -29,7 +29,7 @@ const DEFAULT_OPTION = {
     // Check code if it is true
     checkCode: false,
     // Check image title and alt text if it is true
-    checkImage: false
+    checkImage: true
 };
 
 const reporter = (context, options = {}) => {

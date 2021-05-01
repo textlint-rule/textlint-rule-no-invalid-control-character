@@ -104,9 +104,6 @@ var value = "\u0008"
         },
         {
             text: `![textlint logo\u0008](https://textlint.github.io/img/textlint-icon_256x256.png "logo\u0019")`,
-            options: {
-                checkImage: true
-            },
             errors: [
                 {
                     message: "Found invalid control character(BACKSPACE \\u0008)",
