@@ -1,4 +1,4 @@
-# @textlint-rule/textlint-rule-no-invalid-control-character [![Build Status](https://travis-ci.org/textlint-rule/textlint-rule-no-invalid-control-character.svg?branch=master)](https://travis-ci.org/textlint-rule/textlint-rule-no-invalid-control-character)
+# @textlint-rule/textlint-rule-no-invalid-control-character [![Actions Status: test](https://github.com/textlint-rule/textlint-rule-no-invalid-control-character/workflows/test/badge.svg)](https://github.com/textlint-rule/textlint-rule-no-invalid-control-character/actions?query=workflow%3A"test")
 
 textlint rule check invalid control character in the document.
 

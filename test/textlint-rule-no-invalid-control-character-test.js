@@ -5,7 +5,7 @@ const tester = new TextLintTester();
 const rule = require("../src/textlint-rule-no-invalid-control-character");
 import { INVALID_CONTROL_CHARACTERS } from "../src/CONTROL_CHARACTERS";
 
-const invalid = INVALID_CONTROL_CHARACTERS.map(character => {
+const invalid = INVALID_CONTROL_CHARACTERS.map((character) => {
     return {
         text: `${character.code}:${character.name}`,
         output: `:${character.name}`,
