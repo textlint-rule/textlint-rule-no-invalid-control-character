@@ -108,7 +108,7 @@ const CONTROL_CHARACTERS = [
 ];
 
 // except
-const INVALID_CONTROL_CHARACTERS = CONTROL_CHARACTERS.filter(CONTROL_CHARACTER => {
+const INVALID_CONTROL_CHARACTERS = CONTROL_CHARACTERS.filter((CONTROL_CHARACTER) => {
     const code = CONTROL_CHARACTER.code;
     return code !== "\r" && code !== "\n" && code !== "\t";
 });
