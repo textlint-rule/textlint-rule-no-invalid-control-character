@@ -40,7 +40,14 @@ const reporter = (context, options = {}) => {
     const checkNode = (node) => {
         const text = getSource(node);
         // Ignore \r \n \t
-        const controlCharacterPattern = /([\x00-\x08\x0B\x0C\x0E-\x1F\x7F])/g;
+        const asciiControlCharacters = "\x00-\x08\x0B\x0C\x0E-\x1F\x7F";
+        const c1ControlCharacters = "\x80-\x89\x8A-\x9F";
+        const bidiFormattingCharacters = "\u202A-\u202E";
+        const controlCharacterPattern = new RegExp(
+            `([${asciiControlCharacters}${c1ControlCharacters}${bidiFormattingCharacters}])`,
+            "g"
+        );
+
         /**
          * @type {Array<{match:string, sub:string[], index:number}>}
          */
