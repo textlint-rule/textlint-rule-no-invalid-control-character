@@ -104,6 +104,170 @@ const CONTROL_CHARACTERS = [
     {
         code: "\u001A",
         name: "SUBSTITUTE"
+    },
+    {
+        code: "\u001B",
+        name: "ESCAPE"
+    },
+    {
+        code: "\u001C",
+        name: "INFORMATION SEPARATOR FOUR"
+    },
+    {
+        code: "\u001D",
+        name: "INFORMATION SEPARATOR THREE"
+    },
+    {
+        code: "\u001E",
+        name: "INFORMATION SEPARATOR TWO"
+    },
+    {
+        code: "\u001F",
+        name: "INFORMATION SEPARATOR ONE"
+    },
+    {
+        code: "\u007F",
+        name: "DELETE"
+    },
+    {
+        code: "\u0080",
+        name: "PADDING CHARACTER"
+    },
+    {
+        code: "\u0081",
+        name: "HIGH OCTET PRESET"
+    },
+    {
+        code: "\u0082",
+        name: "BREAK PERMITTED HERE"
+    },
+    {
+        code: "\u0083",
+        name: "NO BREAK HERE"
+    },
+    {
+        code: "\u0084",
+        name: "INDEX"
+    },
+    {
+        code: "\u0085",
+        name: "NEXT LINE (NEL)"
+    },
+    {
+        code: "\u0086",
+        name: "START OF SELECTED AREA"
+    },
+    {
+        code: "\u0087",
+        name: "END OF SELECTED AREA"
+    },
+    {
+        code: "\u0088",
+        name: "CHARACTER TABULATION SET"
+    },
+    {
+        code: "\u0089",
+        name: "CHARACTER TABULATION WITH JUSTIFICATION"
+    },
+    {
+        code: "\u008A",
+        name: "LINE TABULATION SET"
+    },
+    {
+        code: "\u008B",
+        name: "PARTIAL LINE FORWARD"
+    },
+    {
+        code: "\u008C",
+        name: "PARTIAL LINE BACKWARD"
+    },
+    {
+        code: "\u008D",
+        name: "REVERSE LINE FEED"
+    },
+    {
+        code: "\u008E",
+        name: "SINGLE SHIFT TWO"
+    },
+    {
+        code: "\u008F",
+        name: "SINGLE SHIFT THREE"
+    },
+    {
+        code: "\u0090",
+        name: "DEVICE CONTROL STRING"
+    },
+    {
+        code: "\u0091",
+        name: "PRIVATE USE ONE"
+    },
+    {
+        code: "\u0092",
+        name: "PRIVATE USE TWO"
+    },
+    {
+        code: "\u0093",
+        name: "SET TRANSMIT STATE"
+    },
+    {
+        code: "\u0094",
+        name: "CANCEL CHARACTER"
+    },
+    {
+        code: "\u0095",
+        name: "MESSAGE WAITING"
+    },
+    {
+        code: "\u0096",
+        name: "START OF GUARDED AREA"
+    },
+    {
+        code: "\u0097",
+        name: "END OF GUARDED AREA"
+    },
+    {
+        code: "\u0098",
+        name: "START OF STRING"
+    },
+    {
+        code: "\u0099",
+        name: "SINGLE GRAPHIC CHARACTER INTRODUCER"
+    },
+    {
+        code: "\u009A",
+        name: "SINGLE CHARACTER INTRODUCER"
+    },
+    {
+        code: "\u009B",
+        name: "CONTROL SEQUENCE INTRODUCER"
+    },
+    {
+        code: "\u009C",
+        name: "STRING TERMINATOR"
+    },
+    {
+        code: "\u009D",
+        name: "OPERATING SYSTEM COMMAND"
+    },
+    {
+        code: "\u009E",
+        name: "PRIVACY MESSAGE"
+    },
+    {
+        code: "\u009F",
+        name: "APPLICATION PROGRAM COMMAND"
+    },
+    {
+        code: "\u202C",
+        name: "POP DIRECTIONAL FORMATTING"
+    },
+    {
+        code: "\u202D",
+        name: "LEFT-TO-RIGHT OVERRIDE"
+    },
+    {
+        code: "\u202E",
+        name: "RIGHT-TO-LEFT OVERRIDE"
     }
 ];
 
