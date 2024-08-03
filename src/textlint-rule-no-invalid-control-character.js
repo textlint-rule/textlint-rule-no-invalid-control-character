@@ -1,7 +1,6 @@
 // MIT © 2017 azu
 "use strict";
 
-const execall = require("execall");
 import { CONTROL_CHARACTERS } from "./CONTROL_CHARACTERS";
 
 /**
@@ -32,8 +31,14 @@ const DEFAULT_OPTION = {
     checkImage: true
 };
 
+/**
+ *
+ * @param {import("@textlint/types").TextlintRuleContext} context
+ * @param options
+ * @returns {{}}
+ */
 const reporter = (context, options = {}) => {
-    const { Syntax, RuleError, getSource, fixer, report } = context;
+    const { Syntax, RuleError, getSource, fixer, report, locator } = context;
     const allow = options.allow || DEFAULT_OPTION.allow;
     const checkCode = options.checkCode !== undefined ? options.checkCode : DEFAULT_OPTION.checkCode;
     const checkImage = options.checkImage !== undefined ? options.checkImage : DEFAULT_OPTION.checkImage;
@@ -51,13 +56,13 @@ const reporter = (context, options = {}) => {
         /**
          * @type {Array<{match:string, sub:string[], index:number}>}
          */
-        const results = execall(controlCharacterPattern, text);
-        results.forEach((result) => {
-            const index = result.index;
-            const char = result.sub[0];
+        const matches = text.matchAll(controlCharacterPattern);
+        for (const match of matches) {
+            const index = match.index;
+            const char = match[1];
             // if allow the `char`, ignore it
             if (allow.some((allowChar) => allowChar === char)) {
-                return;
+                continue;
             }
             const name = getName(char);
             const ruleError = new RuleError(`Found invalid control character(${name} ${unicodeEscape(char)})`, {
@@ -65,7 +70,7 @@ const reporter = (context, options = {}) => {
                 fix: fixer.removeRange([index, index + 1])
             });
             report(node, ruleError);
-        });
+        }
     };
     return {
         [Syntax.Str](node) {
