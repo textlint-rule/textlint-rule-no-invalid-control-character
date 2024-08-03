@@ -1,9 +1,9 @@
 // MIT © 2017 azu
 "use strict";
-const TextLintTester = require("textlint-tester");
+import TextLintTester from "textlint-tester";
 const tester = new TextLintTester();
-const rule = require("../src/textlint-rule-no-invalid-control-character");
 import { INVALID_CONTROL_CHARACTERS } from "../src/CONTROL_CHARACTERS";
+import rule from "../src/textlint-rule-no-invalid-control-character";
 
 const invalid = INVALID_CONTROL_CHARACTERS.map((character) => {
     return {

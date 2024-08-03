@@ -34,9 +34,11 @@
   },
   "homepage": "https://github.com/textlint-rule/textlint-rule-no-invalid-control-character",
   "devDependencies": {
-    "lint-staged": "^10.5.4",
-    "prettier": "^2.2.1",
-    "textlint-scripts": "^3.0.0"
+    "@textlint/types": "^14.0.4",
+    "lint-staged": "^15.2.8",
+    "prettier": "^3.3.3",
+    "textlint-scripts": "^14.0.4",
+    "textlint-tester": "^14.0.4"
   },
   "prettier": {
     "singleQuote": false,
@@ -49,7 +51,5 @@
       "prettier --write"
     ]
   },
-  "dependencies": {
-    "execall": "^1.0.0"
-  }
+  "packageManager": "yarn@1.22.22+sha256.c17d3797fb9a9115bf375e31bfd30058cac6bc9c3b8807a3d8cb2094794b51ca"
 }
